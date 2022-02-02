@@ -29,3 +29,4 @@ class ProfileController extends Controller
     redirect('admin/profile/edit');    
     }
 }
+//test
