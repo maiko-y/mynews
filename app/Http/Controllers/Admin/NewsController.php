@@ -10,7 +10,8 @@ class NewsController extends Controller
     //以下を追記
     public function add()
 {
-    return view('admin.news.create');
+    return
+view('admin.news.create');
 }    
 }
 
