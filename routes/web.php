@@ -33,6 +33,12 @@ function() {
     Route::get('profile/edit',
     'Admin\ProfileController@edit')->middleware('auth');//応用３
 });
-Auth::routes();
+Auth::routes();//認証関係のルーティングを定義
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('news/create', 'Admin\NewsController@add');//ブラウザから URLを入力して Webページを開くときには、GETメソッド
+     Route::post('news/create', 'Admin\NewsController@create');
+     Route::post('profile/create', 'Admin\ProfileController@create'); 
+     Route::post('profile/edit', 'Admin\ProfileController@update'); # 追記//URLに対して情報を要求するだけでなく、クライアントからさまざまなデータを送信することが出来る
+});
