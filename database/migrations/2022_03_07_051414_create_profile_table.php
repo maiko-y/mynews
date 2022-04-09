@@ -15,13 +15,13 @@ class CreateProfileTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');//データベースに必ずついてくるもの
             $table->string('name'); // 名前(name)を保存するカラム
             $table->string('gender');  // 性別(gender)の本文を保存するカラム
             $table->string('hobby'); // 趣味(hobby)を保存するカラム
             $table->string('introduction');  // 自己紹介(introduction)の本文を保存するカラム
             $table->timestamps();
-            //カラムとValidation、bladeファイルのname属性を一緒にする
+            //カラムとValidation(エラーを見つける)、bladeファイルのname属性を一緒にする
         });
     }
 
