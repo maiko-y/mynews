@@ -10,10 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 //追記
 Route::group(['prefix' => 'admin'],
 function() {
@@ -41,3 +37,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::post('profile/create', 'Admin\ProfileController@create'); 
      Route::post('profile/edit', 'Admin\ProfileController@update'); 
 });
+Route::get('/', 'NewsController@index');
+Route::get('/profile', 'ProfileController@index');
